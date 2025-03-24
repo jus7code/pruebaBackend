@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource ser {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(uuid()) // Cambiar a UUID para que sea String
+  name     String   @unique
+  email    String   @unique
+  password String
+  telefono String?  // Atributo opcional
+  isAdmin  Boolean
+  ingresos Ingreso[] // Relación con Ingreso
+}
+
+model Ingreso {
+  id        Int      @id @default(autoincrement())
+  concepto  String
+  monto     Float
+  fecha     DateTime @default(now())
+  usuario   User     @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuarioId String // Cambiado de Int a String
+}
