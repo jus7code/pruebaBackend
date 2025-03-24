@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Instrucciones de uso
 
-## Getting Started
+Registro
 
-First, run the development server:
+Registrarse como usuario.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Marcar la casilla para registrarse como administrador o usuario regular.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Inicio de sesión
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Iniciar sesión con el email y la contraseña registrados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+En la página principal verás todas las opciones disponibles, pero algunas solo estarán habilitadas si eres administrador.
 
-## Learn More
+Ingresar una venta o compra
 
-To learn more about Next.js, take a look at the following resources:
+Ingresar el monto, concepto y fecha.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Presionar el botón de "Ingresar" para guardar la transacción.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Vista de transacciones
 
-## Deploy on Vercel
+En la sección de "Reportes", visualizarás una tabla con todas las transacciones, incluyendo el nombre del usuario que las realizó.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Gestión de usuarios
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Se podrá ver una lista con los usuarios registrados en la organización.
+
+Edición de usuarios
+
+Desde la lista de usuarios, se podrá presionar el botón de edición para modificar sus atributos directamente.
+
+Tecnologías usadas
+
+Next.js: Framework utilizado para el desarrollo del proyecto.
+
+Auth.js: Manejo de autenticación y control de acceso.
+
+Supabase: Base de datos utilizada para almacenar la información.
+
+Prisma: ORM para la conexión y manipulación de datos entre la base de datos y la aplicación.
+
+Tailwind CSS: Utilizado para el diseño y la estilización del proyecto.
+
+GitHub: Control de versiones y almacenamiento del código.
+
+Vercel: Plataforma donde el sistema está desplegado.
+
+Versionamiento
+
+Versión 1.0: Sistema con login funcional.
+
+Versión 2.0: Sistema con ingreso de transacciones funcional.
