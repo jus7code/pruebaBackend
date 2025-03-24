@@ -10,6 +10,11 @@ export default function UsuariosPage() {
     const fetchUsers = async () => {
       try {
         const res = await fetch("/api/users"); 
+        const ros = await fetch("/api/current_user");
+        if (ros.status === 403) {
+          alert("No tienes permisos para acceder a esta página");
+          router.push("/dashboard"); 
+        }
         if (!res.ok) throw new Error("Error al obtener usuarios");
         const data = await res.json();
         setUsers(data);
