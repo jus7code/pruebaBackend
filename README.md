@@ -51,3 +51,9 @@ Versionamiento
 Versión 1.0: Sistema con login funcional.
 
 Versión 2.0: Sistema con ingreso de transacciones funcional.
+
+Version 3.0: Sistema de vista de reportes funcionando.
+
+Version 4.0: tabla de usuarios funcionando.
+
+Version 5.0: actualización de usuario funcionando correctamente.
