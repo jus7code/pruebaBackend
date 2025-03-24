@@ -57,3 +57,7 @@ Version 3.0: Sistema de vista de reportes funcionando.
 Version 4.0: tabla de usuarios funcionando.
 
 Version 5.0: actualización de usuario funcionando correctamente.
+
+Version 6.0: Creación de API para validar si el usuario es administrador o no.
+
+Version 7.0: Creación de la pagina para inciar el reporte detallado.
