@@ -11,30 +11,50 @@ export default function NuevoMovimientoPage() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
     setError("");
-
-    const res = await fetch("/api/registersell", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData), // No enviamos usuarioId
-    });
-
-    if (res.ok) {
-      router.push("/dashboard");
-    } else {
-      setError("Error al registrar el ingreso.");
+  
+    try {
+      // Validar monto y fecha antes de enviarlos
+      if (!formData.monto || isNaN(parseFloat(formData.monto))) {
+        throw new Error("El monto debe ser un número válido.");
+      }
+      if (!formData.fecha || isNaN(Date.parse(formData.fecha))) {
+        throw new Error("La fecha debe ser válida.");
+      }
+  
+      const dataToSend = {
+        ...formData,
+        fecha: new Date(formData.fecha).toISOString(), // Convertir a formato ISO (UTC)
+        monto: parseFloat(formData.monto), // Asegurar que se envía como Float
+      };
+  
+      const response = await fetch("/api/registersell", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataToSend),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error al guardar el ingreso.");
+      }
+  
+      console.log("Ingreso guardado correctamente");
+      setFormData({ concepto: "", monto: "", fecha: "" }); // Reiniciar formulario
+      router.push("/dashboard"); // Redirigir a la lista de ingresos
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
-
   return (
     <div className="flex h-screen bg-neutral-950 text-white">
       <div className="w-64 bg-neutral-900 p-4"></div>
