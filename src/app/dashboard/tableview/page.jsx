@@ -40,6 +40,14 @@ export default function IngresosPage() {
             </Link>
           </div>
 
+          <div className="flex justify-end mb-4">
+            <Link href="/dashboard/tableview/detailreport">
+              <button className="bg-green-500 hover:bg-green-700 transition px-4 py-2 rounded-lg text-white font-semibold">
+                Generar reporte
+              </button>
+            </Link>
+          </div>
+
           <div className="overflow-x-auto">
             <table className="w-full border border-neutral-700">
               <thead className="bg-neutral-700">

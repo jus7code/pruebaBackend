@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation"; // Importamos el enrutador
 
 export default function UsuariosPage() {
   const [users, setUsers] = useState([]);
-  const router = useRouter(); // Hook de navegación
-
+  const router = useRouter(); 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
