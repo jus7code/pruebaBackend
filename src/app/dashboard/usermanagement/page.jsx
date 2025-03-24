@@ -4,12 +4,16 @@ import { useRouter } from "next/navigation"; // Importamos el enrutador
 
 export default function UsuariosPage() {
   const [users, setUsers] = useState([]);
-  const router = useRouter(); // Hook de navegación
-
+  const router = useRouter(); 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await fetch("/api/users"); 
+        const ros = await fetch("/api/current_user");
+        if (ros.status === 403) {
+          alert("No tienes permisos para acceder a esta página");
+          router.push("/dashboard"); 
+        }
         if (!res.ok) throw new Error("Error al obtener usuarios");
         const data = await res.json();
         setUsers(data);
