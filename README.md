@@ -61,3 +61,17 @@ Version 5.0: actualización de usuario funcionando correctamente.
 Version 6.0: Creación de API para validar si el usuario es administrador o no.
 
 Version 7.0: Creación de la pagina para inciar el reporte detallado.
+
+
+Despliegue en vercel:
+
+Dado que vercel for free necesita autenticar a los usuarios que deseen ver
+para desplegar el proyecto en vercel se deben 
+1. Subir las variables de entorno locales del archivo .env
+2. Clonar el repositorio git
+3. npx vercel link
+4. npm i -g vercel
+5. npm i -g vercel@latest
+6. vercel build    
+
+Comparto el enlace a la aplicacionm desplegada en vercel
