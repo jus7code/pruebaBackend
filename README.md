@@ -75,3 +75,4 @@ para desplegar el proyecto en vercel se deben
 6. vercel build    
 
 Comparto el enlace a la aplicacionm desplegada en vercel
+https://prueba-backend-git-main-jus7codes-projects.vercel.app
