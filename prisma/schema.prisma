@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,20 +8,18 @@ datasource ser {
 }
 
 model User {
-  id       String  @id @default(uuid()) // ID como UUID (String)
+  id       String  @id @default(uuid())
   name     String  @unique
   email    String  @unique
   password String
-  telefono String? // Atributo opcional
   isAdmin  Boolean
+  telefono String?
 }
 
 model Ingreso {
-  id       Int      @id @default(autoincrement())
-  concepto String
-  monto    Float
-  fecha    DateTime @default(now())
-  usuarioId String  // Mantiene usuarioId pero sin relación con User
+  id        Int      @id @default(autoincrement())
+  concepto  String
+  monto     Float
+  fecha     DateTime @default(now())
+  usuarioId String
 }
-
-
